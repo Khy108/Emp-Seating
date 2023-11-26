@@ -12,7 +12,6 @@
         @click="selectSeat(seat.floorSeatSeq)">
 
         <div>{{ seat.floorNo }}樓：座位{{ seat.seatNo }}</div>
-        <!-- <div v-if="seat.empId">{{ '[員編: ' + seat.empId + ']' }}</div> -->
       </div>
     </div>
     <table>
@@ -116,8 +115,6 @@ const submit = async () => {
   }
 };
 
-
-
 </script>
 
 <style scoped>
@@ -128,11 +125,8 @@ const submit = async () => {
 .container {
   display: flex;
   flex-wrap: wrap;
-  /* 允許項目換行 */
   gap: 10px;
-  /* 座位之間的間隔 */
   justify-content: space-between;
-  /* 對齊方式 */
   margin: 20px;
 }
 
@@ -140,11 +134,8 @@ const submit = async () => {
   background-color: gainsboro;
   padding: 10px;
   border-radius: 5px;
-  /* 圓角 */
   width: 200px;
-  /* 根據需要調整寬度 */
   text-align: center;
-  /* 文字置中 */
 }
 
 .seat-box.selected {
