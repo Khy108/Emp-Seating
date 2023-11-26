@@ -33,19 +33,19 @@ public class EmployeeService {
 
 		 seatingRepository.seatState(floorSeatSeq, "selected", "available");
 
-		    // 检查座位状态是否已经更新
+		    // 檢查座位狀態
 		    Optional<SeatingChart> updatedSeat = seatingRepository.findByFloorSeatSeq(floorSeatSeq);
 		    if (!updatedSeat.isPresent() || !"selected".equals(updatedSeat.get().getSeatStatus())) {
-		        return Optional.empty(); // 座位状态没有更新，可能是因为已被占用
+		        return Optional.empty(); 
 		    }
 
-		    // 查找员工
+		    // 查詢員工
 		    Optional<Employee> employee = employeeRepository.findById(empId);
 		    if (!employee.isPresent()) {
-		        return Optional.empty(); // 员工不存在
+		        return Optional.empty();
 		    }
 
-		    // 更新员工座位
+		    // 更新員工座位
 		    Employee emp = employee.get();
 		    SeatingChart seatingChart = updatedSeat.get();
 		    emp.setFloorSeatSeq(seatingChart);
